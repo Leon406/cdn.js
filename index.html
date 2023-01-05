@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>CDN Switch</title>
+    <script type="text/javascript" src="dist/cdn.js"></script>
+    <script type="text/javascript">
+        <!--   You should specify the package version file, and your local resource path     -->
+        loadCdnResource("jquery", "3.6.3", "jquery.min.js", "jq.js")
+    </script>
+</head>
+<body>
+
+<h1 id="info">Origin Text</h1>
+<script>
+    $("#info")[0].innerHTML = "text from jquery set"
+</script>
+</body>
+
+</html>
