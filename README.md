@@ -4,7 +4,7 @@
 
 ## 使用方式
 
-```
+```javascript
 <head>
     ...
     <script type="text/javascript" src="dist/cdn.js"></script>
@@ -18,8 +18,9 @@
 </head>
 ```
 
-备选服务方式,有默认cdn, 仅在CDN服务宕机后重新加载:rocket:
+备选服务方式,有默认cdn, 仅在CDN服务宕机后重新加载
 
+```javascript
 <head>
     ...
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.3.3/jquery.min.js"></script>
@@ -29,6 +30,10 @@
     </script>
     ...
 </head>
+```
+
+
+
 
 ## CDN
 
