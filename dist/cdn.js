@@ -19,7 +19,9 @@ const ABROAD_CDNS = [
 function makeCdnUrl(pkg, version, file) {
     let urls = []
     for (let cdn of DOMESTIC_CDNS) {
-        let url = cdn.replace(":package", pkg).replace(":version", version).replace(":file", file)
+        let url = cdn.replace(":package", pkg)
+            .replace(":version", version)
+            .replace(":file", file)
         urls.push(url);
     }
     return urls;
@@ -36,9 +38,10 @@ function makeAbroadCdnUrl(pkg, version, file, repo = "") {
 }
 
 function head(url, xhr = null) {
+    console.log(url)
     let sendDate = (new Date()).getTime();
     xhr = xhr || new XMLHttpRequest();
-    xhr.open("HEAD", !window.location.protocol.startsWith("http") && url.start("//") ? "https://" + url : url, false);
+    xhr.open("HEAD", !window.location.protocol.startsWith("http") && url.startsWith("//") ? "https://" + url : url, false);
     try {
         xhr.send();
         let time = (new Date()).getTime() - sendDate;
@@ -81,5 +84,6 @@ function loadCdnResource(pkg, version, file, fallback, timeout = 5000, repo = ""
 }
 
 function writeScript(url) {
-    document.write('<script src="' + url + '"></script>')
+    const prefix = url.startsWith("//") && window.location.protocol ==="file:" ? "https:" :""
+    document.write('<script src="' +prefix+ url + '"></script>')
 }
